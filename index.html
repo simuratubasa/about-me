@@ -1,41 +1,62 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>自己紹介</title>
-		<!-- reset.css ress -->
-		<link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
-    <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neon Future Home</title>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="body">
-    <header class="header">
-        <nav class="nav">
-            <ul>
-                <li><a href="#profile">プロフィール</a></li>
-                <li><a href="#hobbies">趣味</a></li>
-            </ul>
+<body>
+  <div class="background"></div>
+  
+    <header>
+        <nav>
+         <a href="#">Home</a>
+         <a href="#">About</a>
+         <a href="#">Skills</a>
+         <a href="#">Works</a>
+         <a href="#">Contact</a>
         </nav>
-        <h1>わたしの自己紹介サイト</h1>
     </header>
-    <main>
-        <section id="profile">
-            <h2>プロフィール</h2>
-            <p>こんにちは、わたしは[あなたの名前]です。これはわたしの自己紹介サイトです。</p>
-        </section>
-        <section id="hobbies">
-            <h2>趣味</h2>
-            <ul>
-                <li>読書</li>
-                <li>旅行</li>
-                <li>プログラミング</li>
-            </ul>
-        </section>
-    </main>
-    <footer class="footer">
-        <p>&copy; 2024 わたしの自己紹介サイト</p>
-    </footer>
-    <script src="js/scripts.js"></script>
-</body>
-</html>
+    <section class="hero">
+        <h1 class="neon-title">Welcome to My Homepage</h1>
+        <p class="subtitle">志村 飛翔</p>
+        <a href="#" class="neon-button" onclick="showAboutSection()">もっと見る</a>
+    </section>
+    <section id="about" class="about-section" style="display: none;">
+        <div class="about-content">
+         <h2 class="section-title">About Me</h2>
+            <div class="profile-card">
+             <h3 class="profile-name">志村 飛翔</h3>
+                <p class="profile-text">
+                 こんにちは！<br>
+                 私は志村飛翔です<br>
+                 未来的でインタラクティブなWebサイトの制作を学んでいます。
+                </p>
+                <div class="skills-list">
+                 <span class="skill-tag">HTML/CSS</span>
+                 <span class="skill-tag">JavaScript</span>
+                 <span class="skill-tag">Web Design</span>
+                </div>
+            </div>
+            <button class="close-button" onclick="hideAboutSection()">閉じる</button>
+        </div>
+    </section>
 
+    <script>
+        function showAboutSection() {
+         const aboutSection = document.getElementById('about');
+         aboutSection.style.display = 'flex';
+         aboutSection.style.animation = 'fadeIn 0.5s ease-in-out';
+        }
+
+        function hideAboutSection() {
+         const aboutSection = document.getElementById('about');
+         aboutSection.style.animation = 'fadeOut 0.5s ease-in-out';
+         setTimeout(() => {
+            aboutSection.style.display = 'none';
+            }, 500);
+        }
+    </script>
+    <footer>&copy; 2025 Neon Future Portfolio</footer>
+</body>
