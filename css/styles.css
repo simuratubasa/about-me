@@ -271,3 +271,221 @@ footer {
   color: #000;
   box-shadow: 0 0 20px var(--neon-color);
 }
+
+/* アニメーション */
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(-20px);
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from { 
+    opacity: 1; 
+    transform: translateY(0);
+  }
+  to { 
+    opacity: 0; 
+    transform: translateY(-20px);
+  }
+}
+
+/* Skills セクション */
+.skills-section {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.skills-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.skill-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(255, 0, 200, 0.3);
+}
+
+.skill-item h3 {
+  color: var(--accent-pink);
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  text-shadow: 0 0 10px var(--accent-pink);
+}
+
+.skill-item p {
+  color: #ccc;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* 大きなプロフィールカード */
+.profile-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.profile-card-large {
+  background: rgba(15, 12, 41, 0.9);
+  border: 3px solid var(--neon-color);
+  border-radius: 20px;
+  padding: 50px;
+  max-width: 800px;
+  width: 100%;
+  box-shadow: 
+    0 0 30px rgba(0, 245, 255, 0.4),
+    inset 0 0 30px rgba(0, 245, 255, 0.1);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.profile-card-large:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 10px 50px rgba(0, 245, 255, 0.5),
+    inset 0 0 30px rgba(0, 245, 255, 0.2);
+}
+
+.profile-header {
+  text-align: center;
+  margin-bottom: 40px;
+  border-bottom: 2px solid var(--accent-pink);
+  padding-bottom: 30px;
+}
+
+.profile-name {
+  font-size: 2.5rem;
+  color: var(--accent-pink);
+  margin-bottom: 10px;
+  text-shadow: 
+    0 0 10px var(--accent-pink),
+    0 0 20px var(--accent-pink);
+  animation: subtitleGlow 2s ease-in-out infinite alternate;
+}
+
+.profile-title {
+  font-size: 1.3rem;
+  color: var(--neon-color);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px var(--neon-color);
+}
+
+.profile-body {
+  display: block;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 30px;
+}
+
+.profile-info h4,
+.profile-description h4,
+.profile-skills h4 {
+  color: var(--neon-color);
+  font-size: 3.6rem;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px var(--neon-color),
+               0 0 20px var(--neon-color);
+  text-align: center;
+}
+
+
+.info-list {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+.info-list li {
+  color: #e0e0e0;
+  margin-bottom: 15px;
+  font-size: 1.6rem;
+  line-height: 1.8;
+  text-align: left;
+}
+
+.info-list strong {
+  color: var(--accent-pink);
+  text-shadow: 0 0 0 5px var(--accent-pink);
+  font-size: 1.8rem;
+}
+
+.profile-description {
+  grid-column: span 2;
+}
+
+.profile-description p {
+  color: #e0e0e0;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  text-align: center;
+}
+
+.profile-skills {
+  grid-column: span 2;
+  text-align: center;
+}
+
+.skills-tags {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.skill-badge {
+  background: transparent;
+  border: 2px solid var(--accent-pink);
+  color: var(--accent-pink);
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.skill-badge:hover {
+  background: var(--accent-pink);
+  color: #000;
+  box-shadow: 
+    0 0 20px var(--accent-pink),
+    0 0 30px var(--accent-pink);
+  transform: translateY(-3px);
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .profile-body {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .profile-description,
+  .profile-skills {
+    grid-column: span 1;
+  }
+  
+  .profile-card-large {
+    padding: 30px;
+  }
+  
+  .skills-tags {
+    gap: 10px;
+  }
+  
+  .skill-badge {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+}
+
