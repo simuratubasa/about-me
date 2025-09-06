@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>好きなゲーム - VRChat</title>
+	<link rel="stylesheet" href="css/styles.css">
+	<script src="JS/scripts.js"></script>
+</head>
+<body class="game-page-colors">
+	<div class="background"></div>
+	<header>
+		<nav>
+			<a href="#" onclick="scrollToSection('hero')">Home</a>
+			<a href="#" onclick="scrollToSection('like-section')">like</a>
+			<a href="#" onclick="scrollToSection('game-section')">game</a>
+			<a href="#" onclick="scrollToSection('anime-section')">anime</a>
+			<a href="#" onclick="scrollToSection('contact-section')">Contact</a>
+		</nav>
+		<h1 class="game-title">VRChat</h1>
+	</header>
+	<main class="game-main-flat">
+		<div style="height: 90px;"></div>
+		<section id="game-section">
+			<div class="game-flat-block">
+				<div class="game-flat-img-wrap">
+					<img src="images/vrchat.png" alt="VRChat" class="game-flat-img" onclick="toggleGameDetails('vrchat-details')" style="cursor: pointer;" data-title="VRChat" data-description="世界中の人とVR空間でコミュニケーションを楽しめるソーシャルVRプラットフォーム。自分の好きなアバターを使って、現実にはない美しいワールドを探索したり、友達と一緒にゲームやイベントを楽しんだりできます。VR機器がなくてもPCから参加可能で、誰でも気軽に始められます。">
+				</div>
+				<p class="game-flat-desc">VRChatは、世界中の人と自由にコミュニケーションや冒険ができるソーシャルVRプラットフォームです。</p>
+				<div id="vrchat-details" class="game-detail-box" style="display: none;">
+					<h3 class="game-detail-title">どんなゲーム？</h3>
+					<p class="game-detail-text">
+						VRChatは、アバターを使って3D空間で他のユーザーと会話したり、ワールド（仮想空間）を探索したりできるサービスです<br>
+						VR機器がなくてもPCから参加可能で、世界中の人とリアルタイムで交流できます<br>
+						自作アバターやワールドをアップロードできる自由度の高さも魅力です
+					</p>
+					<h4 class="game-like-title">おすすめポイント</h4>
+					<ul class="game-like-list">
+						<li>自分の好きなアバターを使うことができる<br><span class="game-like-detail">自作や配布されているアバターを自由に使い、なりたい自分で世界を歩けます</span></li>
+						<li>様々なワールドを体験できる<br><span class="game-like-detail">現実にはない景色や、謎解き・アスレチック・世界観など多彩なワールドを巡ることができます</span></li>
+						<li>グループによるイベントを楽しむことができる<br><span class="game-like-detail">友達同士やコミュニティでゲームをしたりイベントに参加することができます</span></li>
+						<li>VR機器がなくても楽しめる<br><span class="game-like-detail">PCだけでも参加できるので、誰でも気軽に始められます。</span></li>
+					</ul>
+					<h4 class="game-episode-title">おすすめなワールド</h4>
+					<ul class="game-episode-list">
+						<li>よるとうげ<br><span class="game-world-detail">迫力のある映像を見れるワールド</span></li>
+						<li>Victory of Round<br><span class="game-world-detail">能力を獲得して対戦するワールド</span></li>
+						<li>NAGISA<br><span class="game-world-detail">1対1で相手と話せるワールド</span></li>
+					</ul>
+				</div>
+			</div>
+		</section>
+	</main>
+	<footer>&copy; 2025 Simura</footer>
+	
+	<script>
+        function toggleGameDetails(detailsId) {
+            const detailsSection = document.getElementById(detailsId);
+            if (detailsSection.style.display === 'none' || detailsSection.style.display === '') {
+                detailsSection.style.display = 'block';
+                detailsSection.style.animation = 'fadeIn 0.5s ease-in-out';
+                // スムーススクロール
+                setTimeout(() => {
+                    detailsSection.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }, 100);
+            } else {
+                detailsSection.style.animation = 'fadeOut 0.5s ease-in-out';
+                setTimeout(() => {
+                    detailsSection.style.display = 'none';
+                }, 500);
+            }
+        }
+    </script>
+</body>
+</html>

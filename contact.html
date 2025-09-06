@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>お問い合わせ</title>
+	<link rel="stylesheet" href="css/styles.css">
+	<script src="JS/scripts.js"></script>
+</head>
+<body class="contact-page-colors">
+	<div class="background"></div>
+	<header>
+		<nav>
+			<a href="#" onclick="scrollToSection('hero')">Home</a>
+			<a href="#" onclick="scrollToSection('like-section')">like</a>
+			<a href="#" onclick="scrollToSection('anime-section')">anime</a>
+			<a href="#" onclick="scrollToSection('game-section')">game</a>
+			<a href="#" onclick="scrollToSection('contact-section')">Contact</a>
+		</nav>
+		<h1 class="contact-title">お問い合わせ</h1>
+	</header>
+	<main class="contact-main-flat">
+		<div style="height: 90px;"></div>
+		<section id="contact-section">
+			<div class="contact-flat-block">
+				<div class="contact-info-card">
+					<h2 class="contact-flat-title">お問い合わせフォーム</h2>
+					<div class="contact-detail-box">
+						<form class="contact-form">
+							<div class="contact-item">
+								<h3 class="contact-item-title">お名前</h3>
+								<input type="text" class="contact-input" placeholder="お名前を入力してください" required>
+							</div>
+							<div class="contact-item">
+								<h3 class="contact-item-title">メールアドレス</h3>
+								<input type="email" class="contact-input" placeholder="メールアドレスを入力してください" required>
+							</div>
+							<div class="contact-item">
+								<h3 class="contact-item-title">お問い合わせ内容</h3>
+								<textarea class="contact-textarea" placeholder="お問い合わせ内容を入力してください" rows="6" required></textarea>
+							</div>
+							<div class="contact-submit-container">
+								<button type="submit" class="contact-submit-btn">送信する</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+	<footer>&copy; 2025 Simura</footer>
+</body>
+</html>

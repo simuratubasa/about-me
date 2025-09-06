@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>好きなアニメ</title>
+	<link rel="stylesheet" href="css/styles.css">
+	<script src="JS/scripts.js"></script>
+</head>
+<body class="anime-page-colors">
+	<div class="background"></div>
+	<header>
+		<nav>
+			<a href="#" onclick="scrollToSection('hero')">Home</a>
+			<a href="#" onclick="scrollToSection('like-section')">like</a>
+			<a href="#" onclick="scrollToSection('game-section')">game</a>
+			<a href="#" onclick="scrollToSection('anime-section')">anime</a>
+			<a href="#" onclick="scrollToSection('contact-section')">Contact</a>
+		</nav>
+		<h1 class="anime-title">好きなアニメ</h1>
+	</header>
+	<main class="anime-main-flat">
+		<div style="height: 90px;"></div> 
+		<section id="anime-list-section">
+			<div class="anime-flat-block">
+				<h2 class="anime-flat-title">無職転生</h2>
+				<div class="anime-flat-img-wrap">
+					<img src="images/musyokutensei.png" alt="無職転生" class="anime-flat-img" onclick="toggleAnimeDetails('musyoku-details')" style="cursor: pointer;">
+				</div>
+				<p class="anime-flat-desc">無職の男が異世界で本気で再び人生をやり直す物語。</p>
+				<div id="musyoku-details" class="anime-detail-box" style="display: none;">
+				<h3 class="anime-detail-title">詳しい説明</h3>
+				<p class="anime-detail-text">
+					34歳で亡くなった無職の男が、異世界で赤ん坊からやり直す転生ファンタジー。<br>
+					魔法や剣の世界で、家族や仲間と出会い、過去の自分と向き合いながら成長していく姿が描かれています。<br>
+					作画・世界観・キャラクターの心理描写が非常に丁寧で、人生の再出発の大切さを感じさせてくれます。
+				</p>
+				<h4 class="anime-like-title">好きなところ</h4>
+				<ul class="anime-like-list">
+				    <li>主人公の成長と葛藤がリアルで共感できる</li>
+					<li>よく練り上げられたストーリー</li>
+					<li>家族や仲間との絆が温かい</li>
+				</ul>
+				<div class="anime-episode-box">
+					<h4 class="anime-episode-title">おすすめの話</h4>
+					<ul class="anime-episode-list">
+						<li>第11話「子供と戦士」：異世界で今までうまくやっていた主人公が、初めての失敗を経験する回。</li>
+						<li>第16話「親子げんか」：家族との絆や葛藤が深く描かれる話。</li>
+					</ul>
+				</div>
+			</div>
+			<div class="anime-flat-block">
+				<h2 class="anime-flat-title">暗殺教室</h2>
+				<div class="anime-flat-img-wrap">
+					<img src="images/ansatukyousitu.png" alt="暗殺教室" class="anime-flat-img" onclick="toggleAnimeDetails('ansatsu-details')" style="cursor: pointer;">
+				</div>
+				<p class="anime-flat-desc">生徒たちが謎の生物「殺せんせー」を暗殺する学園コメディー</p>
+				<div id="ansatsu-details" class="anime-detail-box" style="display: none;">
+					<h3 class="anime-detail-title">詳しい説明</h3>
+					<p class="anime-detail-text">
+				        舞台は、学園の落ちこぼれクラス「3年E組」。
+                        彼らに突如与えられたのは、クラス担任の「殺せんせー」を暗殺するという使命でした。
+                        殺せんせーは月を7割破壊し人類に脅威をもたらした謎の生物。1年以内の暗殺を命じられる生徒たち。
+                        型破りな設定のもと、笑いと涙の感動物語
+					</p>
+					<h4 class="anime-like-title">好きなところ</h4>
+					<ul class="anime-like-list">
+						<li>学園と暗殺という面白い設定</li>
+						<li>生徒一人ひとりの成長ドラマが丁寧に描かれている</li>
+						<li>ストーリが進むにつれ謎がどんどん解き明かされるところ</li>
+					</ul>
+					<div class="anime-episode-box">
+						<h4 class="anime-episode-title">おすすめの話</h4>
+						<ul class="anime-episode-list">
+							<li>第1期第22話「渚の時間」：主人公・渚の成長が見れる回。</li>
+							<li>第2期第25話「卒業の時間」：物語の最終回で、いつみても泣ける話。</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+	<footer>&copy;2025
+		 Simura</footer>
+		 
+	<script>
+        function toggleAnimeDetails(detailsId) {
+            const detailsSection = document.getElementById(detailsId);
+            if (detailsSection.style.display === 'none' || detailsSection.style.display === '') {
+                detailsSection.style.display = 'block';
+                detailsSection.style.animation = 'fadeIn 0.5s ease-in-out';
+                // スムーススクロール
+                setTimeout(() => {
+                    detailsSection.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }, 100);
+            } else {
+                detailsSection.style.animation = 'fadeOut 0.5s ease-in-out';
+                setTimeout(() => {
+                    detailsSection.style.display = 'none';
+                }, 500);
+            }
+        }
+    </script>
+</body>
+</html>
+
