@@ -141,3 +141,40 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// like.html用の詳細表示機能
+function toggleLikeDetail(detailId) {
+    const detailElement = document.getElementById(detailId);
+    if (!detailElement) return;
+    
+    const isVisible = detailElement.style.display !== 'none';
+    
+    if (isVisible) {
+        // フェードアウト
+        detailElement.style.opacity = '0';
+        detailElement.style.transform = 'translateY(-20px)';
+        setTimeout(() => {
+            detailElement.style.display = 'none';
+        }, 300);
+    } else {
+        // フェードイン
+        detailElement.style.display = 'block';
+        detailElement.style.opacity = '0';
+        detailElement.style.transform = 'translateY(-20px)';
+        
+        // 強制的にスタイルを適用
+        detailElement.offsetHeight;
+        
+        detailElement.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+        detailElement.style.opacity = '1';
+        detailElement.style.transform = 'translateY(0)';
+        
+        // スムーススクロール
+        setTimeout(() => {
+            detailElement.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'nearest'
+            });
+        }, 100);
+    }
+}

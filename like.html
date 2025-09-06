@@ -1,58 +1,76 @@
 <!DOCTYPE html>
 <html lang="ja">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>私の好きなもの</title>
-        <link rel="stylesheet" href="css/styles.css" />
-        <script src="JS/scripts.js"></script>
-    </head>
-    <body class="like-page-colors">
-        <div class="background"></div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>私の好きなもの</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="JS/scripts.js"></script>
+</head>
+<body class="like-page-colors">
+    <div class="background"></div>
+    
+    <header>
+        <nav>
+            <a href="#" onclick="scrollToSection('hero')">Home</a>
+            <a href="#" onclick="scrollToSection('like-section')">like</a>
+            <a href="#" onclick="scrollToSection('anime-section')">anime</a>
+            <a href="#" onclick="scrollToSection('game-section')">game</a>
+            <a href="#" onclick="scrollToSection('contact-section')">Contact</a>
+        </nav>
+        <h1 class="like-title">私の好きなもの</h1>
+    </header>
 
-        <header>
-            <nav>
-                <a href="#" onclick="scrollToSection('hero')">Home</a>
-                <a href="#" onclick="scrollToSection('like-section')">like</a>
-                <a href="#" onclick="scrollToSection('anime-section')">anime</a>
-                <a href="#" onclick="scrollToSection('game-section')">game</a>
-                <a href="#" onclick="scrollToSection('contact-section')">Contact</a>
-            </nav>
-          <h1 class="like-title">私の好きなもの</h1>
-        </header>
-
-        <main class="like-container">
-            <div class="like-card">
-                <h2> 好きな食べ物</h2>
-                <p>オムライス、カレーパン、とんカツ</p>
-                <h3>
-                  <img src="images/omuhaya.jpg" alt="オムライス">
-                  <img src="images/kare-pann.jpg" alt="カレーパン">
-                  <img src="images/tonkatu.jpg" alt="とんカツ">
-                </h3>
+    <main class="like-container">
+        <div class="like-card">
+            <h2>好きな食べ物</h2>
+            <p>オムライス、カレーパン、とんカツ</p>
+            <h3>
+                <img src="images/omuhaya.jpg" alt="オムライス" onclick="toggleLikeDetail('food-detail-1')">
+                <img src="images/kare-pann.jpg" alt="カレーパン" onclick="toggleLikeDetail('food-detail-2')">
+                <img src="images/tonkatu.jpg" alt="とんカツ" onclick="toggleLikeDetail('food-detail-3')">
+            </h3>
+            <div id="food-detail-1" class="like-detail" style="display:none;">
+                <p>画像のようにハヤシライスのルーがかかったオムライスが好きです。</p>
             </div>
-
-            <div class="like-card">
-               <h2>好きなアニメ</h2>
-               <p>「無職転生」「暗殺教室」</p>
-                <h3>
-                  <img src="images/musyokutensei.png" > 
-                  <img src="images/ansatukyousitu.png">
-                </h3>
+            <div id="food-detail-2" class="like-detail" style="display:none;">
+                <p>カリカリの衣、少し辛いくらいのカレーが好きです。一番好きなのはセブンイレブンのカレーパンです。</p>
             </div>
-
-            <div class="like-card">
-              <h2>好きなゲーム</h2>
-              <p>「VRchat」</p>
-              <h3>
-                <img src="images/vrchat.png" >
-              </h3>
+            <div id="food-detail-3" class="like-detail" style="display:none;">
+                <p>トンカツは分厚いものより少し薄いくらいが食べやすくて好きです</p>
             </div>
-        </main>
-
-        <footer>
-          &copy; 2025 Simura
-        </footer>
-    </body>
+        </div>
+        
+        <div class="like-card">
+            <h2>好きなアニメ</h2>
+            <p>「無職転生」「暗殺教室」</p>
+            <h3>
+                <img src="images/musyokutensei.png" alt="無職転生" onclick="toggleLikeDetail('anime-detail-1')">
+                <img src="images/ansatukyousitu.png" alt="暗殺教室" onclick="toggleLikeDetail('anime-detail-2')">
+            </h3>
+            <div id="anime-detail-1" class="like-detail" style="display:none;">
+                <p>無職転生は異世界ものの中で一番好きで主人公の成長が見れて面白いです</p>
+            </div>
+            <div id="anime-detail-2" class="like-detail" style="display:none;">
+                <p>暗殺教室は物語の展開が綺麗で最終回の終わり方は個人的に一番好きです</p>
+            </div>
+        </div>
+        
+        <div class="like-card">
+            <h2>好きなゲーム</h2>
+            <p>「VRchat」</p>
+            <h3>
+                <img src="images/vrchat.png" alt="VRChat" onclick="toggleLikeDetail('game-detail-1')">
+            </h3>
+            <div id="game-detail-1" class="like-detail" style="display:none;">
+                <p>VRChatは仮想空間で世界中の人々と交流できる素晴らしいゲームです。様々なワールドを探索したり、アバターを改変したりして楽しんでいます。</p>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        &copy; 2025 Simura
+    </footer>
+</body>
 </html>
 

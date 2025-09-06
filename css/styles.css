@@ -35,26 +35,7 @@ body {
   text-shadow: 0 0 10px rgba(255,255,255,0.1);
 }
 
-/* --- VRChatページ用 --- */
-.game-episode-list {
-  color: #ffe066;
-  font-size: 1.3rem; /* おすすめワールドリストの基本サイズ */
-  margin: 0 0 0 18px;
-  padding-left: 1.2em;
-  text-shadow: 0 0 4px var(--neon-color);
-}
-.game-episode-list li {
-  margin-bottom: 4px;
-  list-style: disc;
-}
-.game-world-detail {
-  display: block;
-  color: var(--neon-blue);
-  font-size: 1.05rem; /* ワールド説明のサイズ */
-  margin-top: 2px;
-  margin-bottom: 6px;
-  text-shadow: 0 0 6px var(--neon-blue), 0 0 10px var(--neon-pink);
-}
+/* 共通スタイル */
 
 /* ヘッダー */
 header {
@@ -107,6 +88,12 @@ nav a:hover {
   animation: flicker 3s infinite;
 }
 
+/* フリッカーアニメーション */
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+  20%, 24%, 55% { opacity: 0.6; }
+}
+
 /* ボタン */
 .neon-button {
   display: inline-block;
@@ -132,10 +119,15 @@ nav a:hover {
               0 0 60px var(--neon-color);
 }
 
-/* フリッカ―アニメーション */
-@keyframes flicker {
-  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
-  20%, 24%, 55% { opacity: 0.6; }
+/* 共通アニメーション */
+@keyframes titleGlow {
+  0% { text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue), 0 0 40px var(--neon-pink); }
+  100% { text-shadow: 0 0 20px var(--neon-blue), 0 0 30px var(--neon-blue), 0 0 60px var(--neon-pink), 0 0 80px var(--neon-pink); }
+}
+
+@keyframes colorGlow {
+  0% { text-shadow: 0 0 10px currentColor, 0 0 20px currentColor; }
+  100% { text-shadow: 0 0 20px currentColor, 0 0 30px currentColor, 0 0 60px currentColor; }
 }
 
 /* フッター */
@@ -458,9 +450,8 @@ footer {
   transform: translateY(-3px);
 }
 
-/* ===== NEON PAGE-SPECIFIC COLOR THEMES ===== */
 
-/* like.html - ネオンオレンジと白のテーマ */
+/* ページ別カラーテーマ - 復元版 */
 .like-page-colors {
   --neon-orange: #ff6600;
   --neon-white: #ffffff;
@@ -471,7 +462,6 @@ footer {
 .like-page-colors .like-title {
   color: var(--neon-orange);
   text-shadow: 0 0 10px var(--neon-orange), 0 0 20px var(--neon-orange), 0 0 40px var(--neon-orange);
-  animation: neonOrangeGlow 2s ease-in-out infinite alternate;
 }
 
 .like-page-colors .like-card h2 {
@@ -489,12 +479,6 @@ footer {
   box-shadow: 0 0 20px rgba(255, 102, 0, 0.4), inset 0 0 20px rgba(255, 102, 0, 0.1);
 }
 
-@keyframes neonOrangeGlow {
-  0% { text-shadow: 0 0 10px var(--neon-orange), 0 0 20px var(--neon-orange), 0 0 40px var(--neon-orange); }
-  100% { text-shadow: 0 0 20px var(--neon-orange), 0 0 30px var(--neon-orange), 0 0 60px var(--neon-orange), 0 0 80px var(--bright-orange); }
-}
-
-/* anime.html - ネオン黄色と緑のテーマ */
 .anime-page-colors {
   --neon-yellow: #ffff00;
   --neon-green: #00ff41;
@@ -505,19 +489,16 @@ footer {
 .anime-page-colors .anime-title {
   color: var(--neon-yellow);
   text-shadow: 0 0 10px var(--neon-yellow), 0 0 20px var(--neon-yellow), 0 0 40px var(--neon-yellow);
-  animation: neonYellowGlow 2.5s ease-in-out infinite alternate;
 }
 
 .anime-page-colors .anime-flat-title {
   color: var(--neon-green);
   text-shadow: 0 0 10px var(--neon-green), 0 0 20px var(--neon-green), 0 0 40px var(--neon-green);
-  animation: neonGreenGlow 2s ease-in-out infinite alternate;
 }
 
 .anime-page-colors .anime-flat-desc {
   color: var(--neon-yellow);
   text-shadow: 0 0 8px var(--neon-yellow), 0 0 16px var(--neon-green);
-  animation: neonYellowGreenGlow 3s ease-in-out infinite alternate;
 }
 
 .anime-page-colors .anime-detail-title {
@@ -550,22 +531,6 @@ footer {
   text-shadow: 0 0 4px var(--electric-yellow);
 }
 
-@keyframes neonYellowGlow {
-  0% { text-shadow: 0 0 10px var(--neon-yellow), 0 0 20px var(--neon-yellow), 0 0 40px var(--neon-yellow); }
-  100% { text-shadow: 0 0 20px var(--neon-yellow), 0 0 30px var(--neon-yellow), 0 0 60px var(--neon-yellow), 0 0 80px var(--electric-yellow); }
-}
-
-@keyframes neonGreenGlow {
-  0% { text-shadow: 0 0 10px var(--neon-green), 0 0 20px var(--neon-green), 0 0 40px var(--neon-green); }
-  100% { text-shadow: 0 0 20px var(--neon-green), 0 0 30px var(--neon-green), 0 0 60px var(--neon-green), 0 0 80px var(--bright-green); }
-}
-
-@keyframes neonYellowGreenGlow {
-  0% { text-shadow: 0 0 8px var(--neon-yellow), 0 0 16px var(--neon-green); }
-  100% { text-shadow: 0 0 16px var(--neon-yellow), 0 0 32px var(--neon-green), 0 0 48px var(--electric-yellow); }
-}
-
-/* game.html - ネオン青と紫のテーマ */
 .game-page-colors {
   --neon-blue: #0066ff;
   --neon-purple: #aa00ff;
@@ -576,13 +541,11 @@ footer {
 .game-page-colors .game-title {
   color: var(--neon-blue);
   text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue), 0 0 40px var(--neon-blue);
-  animation: neonBlueGlow 2s ease-in-out infinite alternate;
 }
 
 .game-page-colors .game-flat-desc {
   color: var(--neon-purple);
   text-shadow: 0 0 8px var(--neon-purple), 0 0 16px var(--neon-blue);
-  animation: neonPurpleBlueGlow 2.5s ease-in-out infinite alternate;
 }
 
 .game-page-colors .game-detail-title {
@@ -620,17 +583,6 @@ footer {
   text-shadow: 0 0 4px var(--electric-blue);
 }
 
-@keyframes neonBlueGlow {
-  0% { text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue), 0 0 40px var(--neon-blue); }
-  100% { text-shadow: 0 0 20px var(--neon-blue), 0 0 30px var(--neon-blue), 0 0 60px var(--neon-blue), 0 0 80px var(--electric-blue); }
-}
-
-@keyframes neonPurpleBlueGlow {
-  0% { text-shadow: 0 0 8px var(--neon-purple), 0 0 16px var(--neon-blue); }
-  100% { text-shadow: 0 0 16px var(--neon-purple), 0 0 32px var(--neon-blue), 0 0 48px var(--bright-purple); }
-}
-
-/* contact.html - ネオン灰色（シルバー）のテーマ */
 .contact-page-colors {
   --neon-silver: #c0c0c0;
   --electric-gray: #888888;
@@ -641,7 +593,6 @@ footer {
 .contact-page-colors .contact-title {
   color: var(--neon-silver);
   text-shadow: 0 0 10px var(--neon-silver), 0 0 20px var(--neon-silver), 0 0 40px var(--neon-silver);
-  animation: neonSilverGlow 2s ease-in-out infinite alternate;
 }
 
 .contact-page-colors .contact-flat-title {
@@ -679,11 +630,6 @@ footer {
   background: linear-gradient(45deg, var(--neon-silver), var(--bright-silver));
   box-shadow: 0 0 25px rgba(192, 192, 192, 0.6), 0 0 40px rgba(224, 224, 224, 0.3);
   text-shadow: 0 0 10px var(--neon-white), 0 0 20px var(--neon-white);
-}
-
-@keyframes neonSilverGlow {
-  0% { text-shadow: 0 0 10px var(--neon-silver), 0 0 20px var(--neon-silver), 0 0 40px var(--neon-silver); }
-  100% { text-shadow: 0 0 20px var(--neon-silver), 0 0 30px var(--neon-silver), 0 0 60px var(--neon-silver), 0 0 80px var(--bright-silver); }
 }
 
 /* ===== LIKE PAGE STYLES ===== */
@@ -738,33 +684,42 @@ footer {
   align-items: center;
   gap: 20px;
   flex-wrap: wrap;
-  margin: 0;
-  padding: 10px 0;
+  margin: 20px 0;
+  padding: 15px 0;
 }
 
 .like-card img {
-  width: 200px;
-  height: 150px;
-  object-fit: cover;
+  width: 400px;
+  height: 300px;
+  object-fit: contain;
+  object-position: center;
   border-radius: 10px;
   border: 2px solid var(--neon-blue);
   box-shadow: 0 0 15px rgba(0, 245, 255, 0.4);
   transition: all 0.3s ease;
   background: #111;
+  cursor: pointer;
 }
 
 .like-card img:hover {
-  transform: scale(1.1);
-  border-color: var(--neon-pink);
-  box-shadow: 0 0 25px var(--neon-blue), 0 0 35px var(--neon-pink);
+  transform: scale(1.05);
+  border-color: var(--neon-orange);
+  box-shadow: 0 0 25px var(--neon-orange), 0 0 35px rgba(255, 102, 0, 0.5);
+}
+
+/* ページタイトル共通スタイル */
+.like-title, .anime-title, .game-title, .contact-title {
+  font-size: 3rem;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  animation: titleGlow 3s ease-in-out infinite alternate;
 }
 
 .like-title {
-  font-size: 4rem;
-  color: var(--neon-blue);
-  text-shadow: 0 0 15px var(--neon-blue), 0 0 30px var(--neon-blue), 0 0 45px var(--neon-pink);
-  margin: 0;
-  text-align: center;
+  font-size: 2.8rem;
+  color: var(--neon-orange);
+  text-shadow: 0 0 15px var(--neon-orange), 0 0 30px var(--neon-orange), 0 0 45px var(--neon-orange);
   animation: likePageGlow 3s ease-in-out infinite alternate;
   letter-spacing: 3px;
   font-weight: bold;
@@ -772,15 +727,19 @@ footer {
 
 @keyframes likePageGlow {
   0% {
-    text-shadow: 0 0 15px var(--neon-blue), 0 0 30px var(--neon-blue), 0 0 45px var(--neon-pink);
+    text-shadow: 0 0 15px var(--neon-orange), 0 0 30px var(--neon-orange), 0 0 45px var(--neon-orange);
   }
   100% {
-    text-shadow: 0 0 25px var(--neon-blue), 0 0 40px var(--neon-blue), 0 0 65px var(--neon-pink), 0 0 80px var(--neon-pink);
+    text-shadow: 0 0 25px var(--neon-orange), 0 0 40px var(--neon-orange), 0 0 65px var(--neon-orange), 0 0 80px var(--bright-orange);
   }
 }
 
-/* ===== ANIME PAGE STYLES ===== */
-.anime-main-flat {
+.anime-title, .game-title, .contact-title {
+  color: var(--neon-blue);
+}
+
+/* 共通レイアウト */
+.anime-main-flat, .game-main-flat, .contact-main-flat {
   width: 100%;
   min-height: 100vh;
   display: flex;
@@ -790,7 +749,7 @@ footer {
   padding: 0 20px;
 }
 
-.anime-flat-block {
+.anime-flat-block, .game-flat-block, .contact-flat-block {
   margin: 40px 0 0 0;
   padding: 0;
   background: none;
@@ -801,55 +760,37 @@ footer {
   width: 100%;
 }
 
-.anime-flat-title {
-  font-size: 2.8rem;
-  color: var(--neon-pink);
-  text-shadow: 0 0 10px var(--neon-pink), 0 0 20px var(--neon-pink), 0 0 40px var(--neon-blue);
-  margin-bottom: 10px;
-  margin-top: 0;
-  animation: animeFlatTitleGlow 2.5s ease-in-out infinite alternate;
-  letter-spacing: 2px;
+/* 共通画像スタイル */
+.anime-flat-img, .game-flat-img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  min-width: 200px;
+  width: 350px;
+  height: 250px;
+  border-radius: 10px;
+  border: 2px solid var(--neon-blue);
+  box-shadow: 0 0 10px rgba(0, 245, 255, 0.3);
+  background: #111;
+  transition: all 0.3s ease;
+  object-fit: contain;
 }
 
-.anime-flat-img-wrap {
+.anime-flat-img:hover, .game-flat-img:hover {
+  border-color: var(--neon-pink);
+  box-shadow: 0 0 20px var(--neon-blue), 0 0 30px var(--neon-pink);
+  transform: scale(1.04);
+}
+
+.anime-flat-img-wrap, .game-flat-img-wrap {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 10px;
 }
 
-.anime-flat-img {
-  display: block;
-  margin: 0 auto;
-  max-width: 100%;
-  min-width: 200px;
-  width: 500px;
-  height: 300px;
-  border-radius: 10px;
-  border: 2px solid var(--neon-blue);
-  box-shadow: 0 0 10px rgba(0, 245, 255, 0.3);
-  background: #111;
-  transition: all 0.3s ease;
-  object-fit: cover;
-}
-
-.anime-flat-img:hover {
-  border-color: var(--neon-pink);
-  box-shadow: 0 0 20px var(--neon-blue), 0 0 30px var(--neon-pink);
-  transform: scale(1.04);
-}
-
-.anime-flat-desc {
-  font-size: 2rem;
-  color: var(--neon-blue);
-  text-shadow: 0 0 8px var(--neon-blue), 0 0 16px var(--neon-pink);
-  margin: 0 0 10px 0;
-  font-weight: 500;
-  letter-spacing: 1px;
-  animation: animeFlatDescGlow 2.5s ease-in-out infinite alternate;
-}
-
-.anime-detail-box {
+/* 共通詳細ボックス */
+.anime-detail-box, .game-detail-box, .contact-detail-box {
   background: rgba(20, 20, 40, 0.7);
   border: 1.5px solid var(--neon-blue);
   border-radius: 12px;
@@ -860,14 +801,51 @@ footer {
   text-align: left;
 }
 
-.anime-detail-title {
+/* アニメページ固有スタイル */
+.anime-flat-title {
+  font-size: 2.8rem;
+  color: var(--neon-pink);
+  text-shadow: 0 0 10px var(--neon-pink), 0 0 20px var(--neon-pink), 0 0 40px var(--neon-blue);
+  margin-bottom: 10px;
+  margin-top: 0;
+  animation: colorGlow 2.5s ease-in-out infinite alternate;
+  letter-spacing: 2px;
+}
+
+.anime-flat-desc {
+  font-size: 2rem;
+  color: var(--neon-blue);
+  text-shadow: 0 0 8px var(--neon-blue), 0 0 16px var(--neon-pink);
+  margin: 0 0 10px 0;
+  font-weight: 500;
+  letter-spacing: 1px;
+  animation: colorGlow 2.5s ease-in-out infinite alternate;
+}
+
+/* ゲームページ固有スタイル */
+.game-flat-desc {
+  font-size: 1.5rem;
+  color: var(--neon-blue);
+  text-shadow: 0 0 8px var(--neon-blue), 0 0 16px var(--neon-pink);
+  margin: 0 0 10px 0;
+  font-weight: 500;
+  letter-spacing: 1px;
+  animation: colorGlow 2.5s ease-in-out infinite alternate;
+}
+
+/* 共通詳細テキストスタイル */
+.anime-detail-title, .game-detail-title {
   color: var(--neon-pink);
   font-size: 1.3rem;
   margin-bottom: 8px;
   text-shadow: 0 0 8px var(--neon-pink), 0 0 16px var(--neon-blue);
 }
 
-.anime-detail-text {
+.game-detail-title {
+  font-size: 2rem;
+}
+
+.anime-detail-text, .game-detail-text {
   color: var(--neon-blue);
   font-size: 1.1rem;
   margin-bottom: 10px;
@@ -875,14 +853,18 @@ footer {
   text-shadow: 0 0 6px var(--neon-blue), 0 0 12px var(--neon-pink);
 }
 
-.anime-like-title {
+.anime-like-title, .game-like-title {
   color: var(--accent-pink);
   font-size: 1.1rem;
   margin: 18px 0 6px 0;
   text-shadow: 0 0 6px var(--accent-pink);
 }
 
-.anime-like-list {
+.game-like-title {
+  font-size: 2rem;
+}
+
+.anime-like-list, .game-like-list, .anime-episode-list, .game-episode-list {
   color: var(--neon-color);
   font-size: 1rem;
   margin: 0 0 0 18px;
@@ -890,7 +872,17 @@ footer {
   text-shadow: 0 0 4px var(--neon-color);
 }
 
-.anime-like-list li {
+.game-like-list {
+  color: #ffe066;
+  font-size: 1.25rem;
+}
+
+.game-episode-list {
+  color: #ffe066;
+  font-size: 1.3rem;
+}
+
+.anime-like-list li, .game-like-list li, .anime-episode-list li, .game-episode-list li {
   margin-bottom: 4px;
   list-style: disc;
 }
@@ -901,246 +893,31 @@ footer {
   border-top: 1px dashed var(--neon-pink);
 }
 
-.anime-episode-title {
+.anime-episode-title, .game-episode-title {
   color: var(--neon-pink);
   font-size: 1.1rem;
   margin-bottom: 6px;
   text-shadow: 0 0 6px var(--neon-pink);
-}
-
-.anime-episode-list {
-  color: var(--neon-color);
-  font-size: 1rem;
-  margin: 0 0 0 18px;
-  padding-left: 1.2em;
-  text-shadow: 0 0 4px var(--neon-color);
-}
-
-.anime-episode-list li {
-  margin-bottom: 4px;
-  list-style: disc;
-}
-
-.anime-title {
-  font-size: 3rem;
-  color: var(--neon-blue);
-  text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue), 0 0 40px var(--neon-pink);
-  margin: 0;
-  padding: 0;
-  animation: animeTitleGlow 3s ease-in-out infinite alternate;
-}
-
-@keyframes animeTitleGlow {
-  0% {
-    text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue), 0 0 40px var(--neon-pink);
-  }
-  100% {
-    text-shadow: 0 0 20px var(--neon-blue), 0 0 30px var(--neon-blue), 0 0 60px var(--neon-pink), 0 0 80px var(--neon-pink);
-  }
-}
-
-@keyframes animeFlatTitleGlow {
-  0% {
-    text-shadow: 0 0 10px var(--neon-pink), 0 0 20px var(--neon-pink), 0 0 40px var(--neon-blue);
-  }
-  100% {
-    text-shadow: 0 0 20px var(--neon-pink), 0 0 30px var(--neon-pink), 0 0 60px var(--neon-blue), 0 0 80px var(--neon-blue);
-  }
-}
-
-@keyframes animeFlatDescGlow {
-  0% {
-    text-shadow: 0 0 8px var(--neon-blue), 0 0 16px var(--neon-pink);
-  }
-  100% {
-    text-shadow: 0 0 16px var(--neon-blue), 0 0 32px var(--neon-pink);
-  }
-}
-
-/* ===== GAME PAGE STYLES ===== */
-.game-main-flat {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: none;
-  padding: 0 20px;
-}
-
-.game-flat-block {
-  margin: 40px 0 0 0;
-  padding: 0;
-  background: none;
-  border: none;
-  box-shadow: none;
-  text-align: center;
-  max-width: 800px;
-  width: 100%;
-}
-
-.game-flat-img-wrap {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.game-flat-img {
-  display: block;
-  margin: 0 auto;
-  max-width: 100%;
-  min-width: 200px;
-  width: 500px;
-  height: 300px;
-  border-radius: 10px;
-  border: 2px solid var(--neon-blue);
-  box-shadow: 0 0 10px rgba(0, 245, 255, 0.3);
-  background: #111;
-  transition: all 0.3s ease;
-  object-fit: cover;
-}
-
-.game-flat-img:hover {
-  border-color: var(--neon-pink);
-  box-shadow: 0 0 20px var(--neon-blue), 0 0 30px var(--neon-pink);
-  transform: scale(1.04);
-}
-
-.game-flat-desc {
-  font-size: 1.5rem;
-  color: var(--neon-blue);
-  text-shadow: 0 0 8px var(--neon-blue), 0 0 16px var(--neon-pink);
-  margin: 0 0 10px 0;
-  font-weight: 500;
-  letter-spacing: 1px;
-  animation: animeFlatDescGlow 2.5s ease-in-out infinite alternate;
-}
-
-.game-detail-box {
-  background: rgba(20, 20, 40, 0.7);
-  border: 1.5px solid var(--neon-blue);
-  border-radius: 12px;
-  margin: 25px auto 0 auto;
-  padding: 22px 18px 18px 18px;
-  max-width: 600px;
-  box-shadow: 0 0 18px rgba(0,245,255,0.13);
-  text-align: left;
-}
-
-.game-detail-title {
-  color: var(--neon-pink);
-  font-size: 2rem;
-  margin-bottom: 8px;
-  text-shadow: 0 0 8px var(--neon-pink), 0 0 16px var(--neon-blue);
-}
-
-.game-detail-text {
-  color: var(--neon-blue);
-  font-size: 1.1rem;
-  margin-bottom: 10px;
-  line-height: 1.7;
-  text-shadow: 0 0 6px var(--neon-blue), 0 0 12px var(--neon-pink);
-}
-
-.game-like-title {
-  color: var(--accent-pink);
-  font-size: 2rem;
-  margin: 18px 0 6px 0;
-  text-shadow: 0 0 6px var(--accent-pink);
-}
-
-.game-like-list {
-  color: #ffe066;
-  font-size: 1.25rem;
-  margin: 0 0 0 18px;
-  padding-left: 1.2em;
-  text-shadow: 0 0 4px var(--neon-color);
-}
-
-.game-like-list li {
-  margin-bottom: 4px;
-  list-style: disc;
-}
-
-.game-like-detail {
-  display: block;
-  color: var(--neon-blue);
-  font-size: 1rem;
-  margin-top: 2px;
-  margin-bottom: 6px;
-  text-shadow: 0 0 6px var(--neon-blue), 0 0 10px var(--neon-blue);
 }
 
 .game-episode-title {
-  color: var(--neon-pink);
   font-size: 1.5rem;
-  margin-bottom: 6px;
-  text-shadow: 0 0 6px var(--neon-pink);
 }
 
-.game-episode-list {
-  color: #ffe066;
-  font-size: 1.3rem;
-  margin: 0 0 0 18px;
-  padding-left: 1.2em;
-  text-shadow: 0 0 4px var(--neon-color);
-}
-
-.game-episode-list li {
-  margin-bottom: 4px;
-  list-style: disc;
-}
-
-.game-world-detail {
+.game-like-detail, .game-world-detail {
   display: block;
   color: var(--neon-blue);
-  font-size: 1.05rem;
+  font-size: 1rem;
   margin-top: 2px;
   margin-bottom: 6px;
   text-shadow: 0 0 6px var(--neon-blue), 0 0 10px var(--neon-pink);
 }
 
-.game-title {
-  font-size: 3rem;
-  color: var(--neon-blue);
-  text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue), 0 0 40px var(--neon-pink);
-  margin: 0;
-  padding: 0;
-  animation: gameTitleGlow 3s ease-in-out infinite alternate;
+.game-world-detail {
+  font-size: 1.05rem;
 }
 
-@keyframes gameTitleGlow {
-  0% {
-    text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue), 0 0 40px var(--neon-pink);
-  }
-  100% {
-    text-shadow: 0 0 20px var(--neon-blue), 0 0 30px var(--neon-blue), 0 0 60px var(--neon-pink), 0 0 80px var(--neon-pink);
-  }
-}
-
-/* ===== CONTACT PAGE STYLES ===== */
-.contact-main-flat {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: none;
-  padding: 0 20px;
-}
-
-.contact-flat-block {
-  margin: 40px 0 0 0;
-  padding: 0;
-  background: none;
-  border: none;
-  box-shadow: none;
-  text-align: center;
-  max-width: 800px;
-  width: 100%;
-}
-
+/* コンタクトページ固有スタイル */
 .contact-info-card {
   background: rgba(20, 20, 40, 0.8);
   border: 2px solid var(--neon-blue);
@@ -1156,17 +933,6 @@ footer {
   text-shadow: 0 0 10px var(--neon-pink), 0 0 20px var(--neon-pink);
   margin-bottom: 20px;
   letter-spacing: 2px;
-}
-
-.contact-detail-box {
-  background: rgba(20, 20, 40, 0.7);
-  border: 1.5px solid var(--neon-blue);
-  border-radius: 12px;
-  margin: 25px auto 0 auto;
-  padding: 22px 18px 18px 18px;
-  max-width: 600px;
-  box-shadow: 0 0 18px rgba(0,245,255,0.13);
-  text-align: left;
 }
 
 .contact-form {
@@ -1188,8 +954,7 @@ footer {
   font-weight: bold;
 }
 
-.contact-input,
-.contact-textarea {
+.contact-input, .contact-textarea {
   background: rgba(0, 0, 0, 0.5);
   border: 2px solid var(--neon-blue);
   border-radius: 8px;
@@ -1201,15 +966,13 @@ footer {
   box-shadow: 0 0 10px rgba(0, 245, 255, 0.2);
 }
 
-.contact-input:focus,
-.contact-textarea:focus {
+.contact-input:focus, .contact-textarea:focus {
   outline: none;
   border-color: var(--neon-pink);
   box-shadow: 0 0 20px rgba(255, 0, 204, 0.4);
 }
 
-.contact-input::placeholder,
-.contact-textarea::placeholder {
+.contact-input::placeholder, .contact-textarea::placeholder {
   color: #888;
 }
 
@@ -1240,24 +1003,51 @@ footer {
   transform: translateY(-2px);
 }
 
-.contact-title {
-  font-size: 3rem;
-  color: var(--neon-blue);
-  text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue), 0 0 40px var(--neon-pink);
+/* ===== LIKE PAGE SPECIFIC STYLES ===== */
+
+/* like.html用の詳細説明スタイル */
+.like-detail {
+  margin-top: 15px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--neon-orange);
+  border-radius: 10px;
+  color: var(--neon-white);
+  text-shadow: 0 0 6px var(--neon-white);
+  box-shadow: 0 0 15px rgba(255, 102, 0, 0.3);
+  backdrop-filter: blur(5px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.like-detail p {
   margin: 0;
-  padding: 0;
-  animation: contactTitleGlow 3s ease-in-out infinite alternate;
+  font-size: 1.1rem;
+  line-height: 1.6;
 }
 
-@keyframes contactTitleGlow {
-  0% {
-    text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue), 0 0 40px var(--neon-pink);
-  }
-  100% {
-    text-shadow: 0 0 20px var(--neon-blue), 0 0 30px var(--neon-blue), 0 0 60px var(--neon-pink), 0 0 80px var(--neon-pink);
-  }
+/* 画像のクリック可能性を示すスタイル */
+.like-card img {
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
+.like-card img:hover {
+  transform: scale(1.05);
+  border-color: var(--neon-orange);
+  box-shadow: 0 0 25px var(--neon-orange), 0 0 35px rgba(255, 102, 0, 0.5);
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .like-detail {
+    padding: 15px;
+    margin-top: 10px;
+  }
+  
+  .like-detail p {
+    font-size: 1rem;
+  }
+}
 /* レスポンシブデザイン */
 @media (max-width: 768px) {
   .like-container {
@@ -1280,8 +1070,9 @@ footer {
   }
 
   .like-card img {
-    width: 150px;
-    height: 110px;
+    width: 320px;
+    height: 240px;
+    object-fit: contain;
   }
 
   .like-card h3 {
@@ -1293,9 +1084,11 @@ footer {
     letter-spacing: 2px;
   }
 
-  .anime-flat-title,
-  .game-title,
-  .contact-title {
+  .anime-title, .game-title, .contact-title {
+    font-size: 2rem;
+  }
+  
+  .anime-flat-title {
     font-size: 2rem;
   }
   
@@ -1311,10 +1104,11 @@ footer {
     font-size: 1.8rem;
   }
   
-  .anime-flat-img,
-  .game-flat-img {
-    min-width: 80px;
+  .anime-flat-img, .game-flat-img {
+    min-width: 150px;
     max-width: 100%;
+    width: 280px;
+    height: 200px;
   }
 }
 
@@ -1333,8 +1127,9 @@ footer {
   }
 
   .like-card img {
-    width: 120px;
-    height: 90px;
+    width: 280px;
+    height: 210px;
+    object-fit: contain;
   }
 
   .like-card h3 {
@@ -1346,14 +1141,11 @@ footer {
     letter-spacing: 1px;
   }
   
-  .anime-flat-title,
-  .game-title,
-  .contact-title {
+  .anime-title, .game-title, .contact-title {
     font-size: 1.5rem;
   }
   
-  .anime-flat-desc,
-  .game-flat-desc {
+  .anime-flat-desc, .game-flat-desc {
     font-size: 1rem;
   }
   
@@ -1361,8 +1153,7 @@ footer {
     font-size: 1.3rem;
   }
   
-  .contact-input,
-  .contact-textarea {
+  .contact-input, .contact-textarea {
     padding: 12px;
     font-size: 0.9rem;
   }
@@ -1370,5 +1161,11 @@ footer {
   .contact-submit-btn {
     padding: 12px 30px;
     font-size: 1rem;
+  }
+  
+  .anime-flat-img, .game-flat-img {
+    min-width: 120px;
+    width: 220px;
+    height: 160px;
   }
 }
